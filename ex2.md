@@ -10,3 +10,12 @@
 ## Question 3
 - You would need to modify the interpolation formula:
     * "pos = low + int(((float(high - low) / (arr[high] - arr[low])) * (x - arr[low])))"
+
+## Question 4
+- You would use linear search when the elements are not sorted. This is because binary or interpolation search would keep checking if it is bigger or smaller, and depending on that they move towards one section, however, since it is unsorted, it does not know if it is truely on that section. Linear would look through everything one at a time.
+
+## Question 5
+- Linear search would outperform both binary and interpolation search, when the number is at the start of the list or object. This is because linear search starts from one end and binary and interpolation search start from the middle, so if the key is at the starting end, linear will always outperform binary and interpolation search.
+
+## Question 6
+- There is no way to solve this issue since binary starts from the middle, but interpolation can rarely get it on the first try because since it is unsorted, it can assume to start searching from the first element. Other than that, there is no way binary and interpolation can match or be faster than linear search if the element is first in the order.
