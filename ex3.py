@@ -7,13 +7,26 @@
 
 import cProfile
 
-# Start the profiler
-profiler = cProfile.Profile()
-profiler.enable()
+import timeit
 
 
-# Stop the profiler
-profiler.disable()
+def sub_function(n):
+    # sub function that calculates the factorial of n
+    if n == 0:
+        return 1
+    else:
+        return n * sub_function(n - 1)
 
-# Print the profiling results
-profiler.print_stats()
+
+def test_function():
+    data = []
+    for i in range(10):
+        data.append(sub_function(i))
+    return data
+
+
+def third_function():
+    # third function that calculates the square of the numbers from 0 to 999
+    return [i ** 2 for i in range(100000000)]
+cProfile.run('test_function()')
+cProfile.run('third_function()')
