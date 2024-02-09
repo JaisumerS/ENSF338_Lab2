@@ -25,9 +25,13 @@ def func_memo(n, memo={}):
         return result
 
 #5 The time complexity of this code is O(n) because the memoization
+original_times = []
+improved_times = []
 
-original_times = [timeit.timeit(lambda: func(i), number=1) for i in range(36)]
-improved_times = [timeit.timeit(lambda: func_memo(j), number=1) for j in range(36)]
+for i in range(36):
+    memo = {}
+    original_times.append(timeit.timeit(lambda: func(i), number=1))
+    improved_times.append(timeit.timeit(lambda: func_memo(i, memo), number=1))
 
 plt.figure()
 plt.plot(original_times, label='Original')
